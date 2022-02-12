@@ -9,21 +9,6 @@ const AppStateContext = createContext<AppStateContextProps>(
     {} as AppStateContextProps
 );
 
-type Task = {
-    id: string
-    text: string
-};
-
-type List = {
-    id: string
-    text: string
-    tasks: Task[]
-};
-
-export type AppState = {
-    lists: List[]
-};
-
 const appData: AppState = {
     lists: [
         {
