@@ -11,6 +11,13 @@ export type Action =
             listId: string
         }
     }
+    | {
+        type: 'MOVE_LIST'
+        payload: {
+            draggedId: string
+            hoverId: string
+        }
+    }
 
 
 // action creators
@@ -22,4 +29,12 @@ export const addTask = (text: string, listId: string): Action => ({
 export const addList = (text: string): Action => ({
     type: 'ADD_LIST',
     payload: text
+});
+
+export const moveList = (draggedId: string, hoverId: string): Action => ({
+    type: 'MOVE_LIST',
+    payload: {
+        draggedId,
+        hoverId
+    }
 });
