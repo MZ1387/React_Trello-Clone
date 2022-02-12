@@ -1,17 +1,18 @@
-import { ColumnContainer, ColumnTitle, CardContainer } from "./styles";
+import { ColumnContainer, ColumnTitle } from "./styles";
+import { Card } from './Card';
 
 // define the form of your props object
 type ColumnProps = {
     text: string
-}
+};
 
 export const Column = ({ text }: ColumnProps) => {
     return (
         <ColumnContainer>
             <ColumnTitle>{text}</ColumnTitle>
-            <CardContainer>Task One</CardContainer>
-            <CardContainer>Task Two</CardContainer>
-            <CardContainer>Task Three</CardContainer>
+            <Card text='task one' />
+            <Card text='task two' />
+            <Card text='task three' />
         </ColumnContainer>
-    )
-}
+    );
+};
