@@ -2,7 +2,7 @@
 
 import { DragItem } from "../DragItem";
 
-export const isHidden = (draggedItem: DragItem, itemType: string, id: string): boolean => {
+export const isHidden = (draggedItem: DragItem | null, itemType: string, id: string): boolean => {
     return Boolean(
         draggedItem 
         && draggedItem.type === itemType

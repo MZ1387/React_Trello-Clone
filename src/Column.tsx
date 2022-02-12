@@ -7,6 +7,7 @@ import { useItemDrag } from './utils/useItemDrag';
 import { useDrop } from "react-dnd";
 import { throttle } from 'throttle-debounce-ts';
 import { moveList, addTask } from './state/actions';
+import { isHidden } from './utils/isHidden';
 
 // define the form of your props object
 type ColumnProps = {
@@ -45,7 +46,10 @@ export const Column = ({ text, id }: ColumnProps) => {
     drag(drop(ref));
 
     return (
-        <ColumnContainer ref={ref} >
+        <ColumnContainer 
+            ref={ref} 
+            isHidden={isHidden(draggedItem, 'COLUMN', id)} 
+        >
             <ColumnTitle>{text}</ColumnTitle>
             {
                 tasks.map((task) => (
