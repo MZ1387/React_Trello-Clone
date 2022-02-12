@@ -27,17 +27,17 @@ export type AppState = {
 const appData: AppState = {
     lists: [
         {
-            id: '0',
+            id: '0a',
             text: 'task one',
             tasks: [{ id: 'c0', text: 'one...'}]
         },
         {
-            id: '0',
+            id: '0b',
             text: 'task two',
             tasks: [{ id: 'c1', text: 'two...'}]
         },
         {
-            id: '0',
+            id: '0c',
             text: 'task three',
             tasks: [{ id: 'c2', text: 'three...'}]
         }
