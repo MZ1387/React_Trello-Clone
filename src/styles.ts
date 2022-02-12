@@ -89,3 +89,13 @@ export const NewItemInput = styled.input`
     border-radius: 3px;
     box-shadow: #091e4240 0px 1px 0px 0px;
 `;
+
+export const CustomDragLayerContainer = styled.div`
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    position: fixed;
+    pointer-events: none;
+`;
