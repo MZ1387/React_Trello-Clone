@@ -50,6 +50,12 @@ export const appStateReducer = (draft: AppState, action: Action): AppState | voi
 
             break;
         }
+
+        case 'SET_DRAGGED_ITEM': {
+            draft.draggedItem = action.payload;
+
+            break;
+        }
             
         default:
             break;
