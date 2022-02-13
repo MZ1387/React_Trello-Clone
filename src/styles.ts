@@ -10,14 +10,14 @@ export const AppContainer = styled.div`
     align-items: flex-start;
 `;
 
-interface DragPreviewContainerProps {
+type DragPreviewContainerProps = {
     isHidden?: boolean
     isPreview?: boolean
 };
 
 export const DragPreviewContainer = styled.div<DragPreviewContainerProps>`
     opacity: ${(props) => (props.isHidden ? 0 : 1)};
-    transform: ${(props) => props.isPreview ? 'rotate(5deg' : undefined}
+    transform: ${(props) => props.isPreview ? 'rotate(5deg)' : undefined};
 `;
 
 export const ColumnContainer = styled(DragPreviewContainer)`
@@ -101,3 +101,18 @@ export const CustomDragLayerContainer = styled.div`
     position: fixed;
     pointer-events: none;
 `;
+
+type DragPreviewWrapperProps = {
+    position: {
+        x: number
+        y: number
+    }
+};
+
+export const DragPreviewWrapper = styled.div.attrs<DragPreviewWrapperProps>(
+    ({ position: { x, y } }) => ({
+        style: {
+            transform: `translate(${x}px, ${y}px)`
+        }
+    })
+)<DragPreviewWrapperProps>``;
