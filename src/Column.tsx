@@ -58,6 +58,7 @@ export const Column = ({ text, id, isPreview }: ColumnProps) => {
                     <Card 
                         id={task.id}
                         key={task.id}
+                        columnId={id}
                         text={task.text}
                     />
                 ))
