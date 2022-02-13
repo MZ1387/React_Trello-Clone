@@ -6,7 +6,7 @@ import { useRef } from 'react';
 import { useItemDrag } from './utils/useItemDrag';
 import { useDrop } from "react-dnd";
 import { throttle } from 'throttle-debounce-ts';
-import { moveList, addTask } from './state/actions';
+import { moveList, addTask, moveTask, setDraggedItem } from './state/actions';
 import { isHidden } from './utils/isHidden';
 
 // define the form of your props object
@@ -22,7 +22,7 @@ export const Column = ({ text, id, isPreview }: ColumnProps) => {
     const ref = useRef<HTMLDivElement>(null);
 
     const [, drop] = useDrop({
-        accept: 'COLUMN',
+        accept: ['COLUMN', 'CARD'],
         hover: throttle(200, () => {
 
             if (!draggedItem) {
@@ -36,6 +36,18 @@ export const Column = ({ text, id, isPreview }: ColumnProps) => {
                 }
 
                 dispatch(moveList(draggedItem.id, id));
+            } else {
+
+                if (draggedItem.columnId === id) {
+                    return;
+                }
+
+                if (tasks.length) {
+                    return;
+                }
+
+                dispatch(moveTask(draggedItem.id, null, draggedItem.columnId, id));
+                dispatch(setDraggedItem({ ...draggedItem, columnId: id }));
             }
         })
     });
